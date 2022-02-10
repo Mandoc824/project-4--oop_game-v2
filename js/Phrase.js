@@ -4,11 +4,13 @@
 
 "use strict";
 
+//phrase class
 class Phrase {
   constructor(phrase) {
     this._phrase = phrase.toLowerCase();
   }
-
+  //this method will add the phrase to display
+  //each letter is created as an HTML list item and pushed into the unorderlist in the phrase div
   addPhraseToDisplay() {
     const phraseDisplay = document.querySelector("div ul");
     function createLI(letter) {
@@ -27,6 +29,7 @@ class Phrase {
     }
   }
 
+  //this will check if a button clicked on the keyword is in the phrase
   checkLetter(letter) {
     if (this._phrase.includes(letter)) {
       return true;
@@ -35,6 +38,8 @@ class Phrase {
     }
   }
 
+  //this will show the  matched letter by invoking the checkletter method and checking if the letter is in the phrase
+  //if the input is in the phrase, the letter is shown
   showMatchedLetter(letter) {
     const phraseLetters = document.querySelectorAll(".letter");
     if (this.checkLetter(letter)) {
